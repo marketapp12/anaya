@@ -1,100 +1,79 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TERSESAT...</title>
+  <title>Necro Crasher</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 
     body {
+      margin: 0;
       background: black;
       color: red;
-      font-family: 'Courier New', monospace;
-      height: 100vh;
+      font-family: 'UnifrakturCook', cursive;
       overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
       text-align: center;
+      animation: fadeIn 3s ease-in-out;
     }
 
     h1 {
       font-size: 3em;
-      margin-top: 20vh;
-      animation: flicker 2s infinite;
+      animation: glitch 2s infinite;
     }
 
     p {
-      margin-top: 2rem;
-      font-size: 1.5em;
-      opacity: 0;
-      animation: fadeIn 4s forwards 3s;
-    }
-
-    #jumpscare {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: black;
-      z-index: 9999;
-    }
-
-    #jumpscare img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      animation: flash 0.2s ease-in-out infinite alternate;
-    }
-
-    @keyframes flicker {
-      0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        opacity: 1;
-      }
-      20%, 24%, 55% {
-        opacity: 0;
-      }
+      font-size: 1.2em;
+      max-width: 80%;
+      margin-top: 20px;
+      line-height: 1.5em;
+      animation: fadeIn 4s ease-in-out;
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    @keyframes flash {
-      0% { opacity: 1; }
-      100% { opacity: 0.6; }
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 darkred; }
+      20% { text-shadow: -2px 0 red, 2px 0 darkred; }
+      40% { text-shadow: 2px 0 red, -2px 0 darkred; }
+      60% { text-shadow: -2px 0 red, 2px 0 darkred; }
+      80% { text-shadow: 2px 0 red, -2px 0 darkred; }
+      100% { text-shadow: -2px 0 red, 2px 0 darkred; }
+    }
+
+    .symbol {
+      font-size: 2em;
+      margin-bottom: 10px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
     }
   </style>
 </head>
 <body>
-  <h1>🩸 Anaya Necro 🩸</h1>
-  <p>Cemas Kau Dekk!</p>
-
-  <div id="jumpscare">
-    <img src="https://tmpfiles.org/dl/1801623/1749832058427.jpg" alt="Jumpscare">
+  <div class="container">
+    <div class="symbol">⛧☠️⛧</div>
+    <h1>Necro Crasher</h1>
+    <p>
+      🩸 Necro Crasher<br>
+      Kami bukan hanya sekadar script — kami adalah kutukan digital.<br><br>
+      ⛧ Diciptakan dari kegelapan, dijalankan untuk menghancurkan. <br>
+      ⛧ Siapa yang masuk, tak akan keluar dengan utuh.<br><br>
+      <b>⚠️ Jangan gunakan sembarangan. Kami tidak bertanggung jawab atas kehancuran yang kamu timbulkan.</b>
+    </p>
   </div>
-
-  <audio id="bg-sound" autoplay loop>
-    <source src="https://www.fesliyanstudios.com/play-mp3/6665" type="audio/mpeg">
-  </audio>
-
-  <audio id="scream">
-    <source src="https://www.fesliyanstudios.com/play-mp3/4385" type="audio/mpeg">
-  </audio>
-
-  <script>
-    setTimeout(() => {
-      const jumpscare = document.getElementById("jumpscare");
-      const scream = document.getElementById("scream");
-
-      jumpscare.style.display = "block";
-      scream.play().catch(e => console.log("Audio play error:", e));
-    }, 5000);
-  </script>
 </body>
-  </html>
+</html>
